@@ -6,4 +6,6 @@ let associations = ./settings/associations.dhall
 
 let ui = ./settings/ui.dhall
 
-in  vim ∧ vspacecodeDefaults ∧ associations ∧ ui
+let langs = ./settings/langs.dhall
+
+in  vim ∧ vspacecodeDefaults ∧ associations ∧ ui ∧ langs
