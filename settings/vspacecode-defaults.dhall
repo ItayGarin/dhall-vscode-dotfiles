@@ -6,17 +6,25 @@ let `vim.insertModeKeyBindingsNonRecursive`
     : List vimB.VimKeyBinding
     = [ vimB.makeAfterBinding [ "f", "d" ] [ "<Esc>" ] ]
 
-let `vim.normalModeKeyBindingsNonRecursive`
+let normalAndVisualDefaults
     : List vimB.VimKeyBinding
-    = [ vimB.makeCommandsBinding
-          [ "," ]
-          [ vimC.Basic "vspacecode.space"
-          , vimC.WithArgs { command = "whichkey.triggerKey", args = "m" }
-          ]
-      ]
+    = let leaderCmd =
+            vimB.makeCommandsBinding
+              [ "<space>" ]
+              [ vimC.Basic "vspacecode.space" ]
 
-let `vim.visualModeKeyBindingsNonRecursive` =
-      `vim.normalModeKeyBindingsNonRecursive`
+      let modeCmd =
+            vimB.makeCommandsBinding
+              [ "," ]
+              [ vimC.Basic "vspacecode.space"
+              , vimC.WithArgs { command = "whichkey.triggerKey", args = "m" }
+              ]
+
+      in  [ leaderCmd, modeCmd ]
+
+let `vim.normalModeKeyBindingsNonRecursive` = normalAndVisualDefaults
+
+let `vim.visualModeKeyBindingsNonRecursive` = normalAndVisualDefaults
 
 in  { `vim.insertModeKeyBindingsNonRecursive`
     , `vim.normalModeKeyBindingsNonRecursive`
