@@ -1,1 +1,4 @@
-{ `vim.easymotion` = True, `vim.useSystemClipboard` = True }
+{ `vim.easymotion` = True
+, `vim.useSystemClipboard` = True
+, `vim.useCtrlKeys` = False
+}

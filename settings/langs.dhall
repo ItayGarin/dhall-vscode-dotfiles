@@ -2,4 +2,6 @@ let python = ./langs/python.dhall
 
 let typescript = ./langs/typescript.dhall
 
-in  python ∧ typescript
+let golang = ./langs/golang.dhall
+
+in  python ∧ typescript ∧ golang
