@@ -4,4 +4,8 @@ let typescript = ./langs/typescript.dhall
 
 let golang = ./langs/golang.dhall
 
-in  python ∧ typescript ∧ golang
+let markdown = ./langs/markdown.dhall
+
+let json = ./langs/json.dhall
+
+in  python ∧ typescript ∧ golang ∧ markdown ∧ json
