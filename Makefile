@@ -1,5 +1,5 @@
 .PHONY: default
-default: dist/settings.json dist/keybindings.json
+default: clean dist/settings.json dist/keybindings.json
 
 dist/settings.json: settings/settings.dhall
 	cd settings && cat settings.dhall | dhall-to-json > ../dist/settings.json
