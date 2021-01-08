@@ -10,3 +10,7 @@ dist/keybindings.json: keybindings/keybindings.dhall
 .PHONY: clean
 clean:
 	rm -f dist/*
+
+.PHONY: install
+install:
+	cp dist/* ~/dotfiles/vscode/.config/Code/User
