@@ -2,16 +2,14 @@ let vimC = ../types/VimCommand.dhall
 
 let vimB = ../types/VimKeyBinding.dhall
 
-let `vim.insertModeKeyBindingsNonRecursive`
+let insert
     : List vimB.VimKeyBinding
     = [ vimB.makeAfterBinding [ "f", "d" ] [ "<Esc>" ] ]
 
 let normalAndVisualDefaults
     : List vimB.VimKeyBinding
     = let leaderCmd =
-            vimB.makeCommandsBinding
-              [ "<space>" ]
-              [ vimC.Basic "vspacecode.space" ]
+            vimB.makeBasicCommandBinding [ "<space>" ] "vspacecode.space"
 
       let modeCmd =
             vimB.makeCommandsBinding
@@ -22,11 +20,8 @@ let normalAndVisualDefaults
 
       in  [ leaderCmd, modeCmd ]
 
-let `vim.normalModeKeyBindingsNonRecursive` = normalAndVisualDefaults
+let normal = normalAndVisualDefaults
 
-let `vim.visualModeKeyBindingsNonRecursive` = normalAndVisualDefaults
+let visual = normalAndVisualDefaults
 
-in  { `vim.insertModeKeyBindingsNonRecursive`
-    , `vim.normalModeKeyBindingsNonRecursive`
-    , `vim.visualModeKeyBindingsNonRecursive`
-    }
+in  { normal, insert, visual }

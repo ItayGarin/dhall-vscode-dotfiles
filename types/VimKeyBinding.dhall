@@ -12,9 +12,14 @@ let makeCommandsBinding =
       λ(commands : List VimCommand) →
         VimKeyBinding.Commands { before, commands }
 
+let makeBasicCommandBinding =
+      λ(before : List Text) →
+      λ(basicCmd : Text) →
+        VimKeyBinding.Commands { before, commands = [VimCommand.Basic basicCmd] }
+
 let makeAfterBinding =
       λ(before : List Text) →
       λ(after : List Text) →
         VimKeyBinding.After { before, after }
 
-in  { VimKeyBinding, makeCommandsBinding, makeAfterBinding }
+in  { VimKeyBinding, makeCommandsBinding, makeBasicCommandBinding, makeAfterBinding }
