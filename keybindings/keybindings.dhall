@@ -6,4 +6,6 @@ let fixVim = ./layers/fix-vim.dhall
 
 let terminal = ./layers/terminal.dhall
 
-in  vspacecodeDefautls # fixTerminal # terminal # fixVim
+let symbolNavi = ./layers/symbol-navigation.dhall
+
+in  vspacecodeDefautls # fixTerminal # terminal # fixVim # symbolNavi
