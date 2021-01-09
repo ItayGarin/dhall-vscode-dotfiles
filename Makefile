@@ -12,5 +12,5 @@ clean:
 	rm -f dist/*
 
 .PHONY: install
-install:
-	cp dist/* ~/dotfiles/vscode/.config/Code/User
+install: default
+	cp dist/* ~/dotfiles/configs/common/vscode/.config/Code/User
